@@ -1,0 +1,54 @@
+#all{
+    width: 75vw;
+    margin: 50px auto 0 auto;
+}
+
+#menu a{
+    text-decoration: none;
+    padding-top:12px;
+    display: block;
+    color: black;
+    font-weight:bold;
+}
+
+#menu_content{
+    display: table;
+    width: 100%;
+}
+
+#menu {
+    width: 20%;
+    /*border-right: 1px solid black;*/
+    display:table-cell;
+    padding: 10px 10px 10px;
+    background-color:#d2d2d2;
+    font-family: Verdana, Helvetica, Arial, sans-serif;
+    font-size:12px;
+
+}
+
+#content{
+    padding: 10px 10px 10px 10px;
+    width: 80%;
+    display:table-cell;
+    background-color:#e0e0e0;
+    font-family: Verdana, Helvetica, Arial, sans-serif;
+    font-size:12px;
+}
+
+h1{
+    font-size: 16px;
+}
+
+
+#user{
+    text-align: right;
+    padding-right: 10px;
+    padding-top:10px;
+    font-size:11px;
+    font-family: Verdana, Helvetica, Arial, sans-serif;
+    font-weight:bold;
+    font-style: italic;
+    height:25px;
+    background-color: #a9a9a9;
+}

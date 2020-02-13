@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>SKLEP INTERNETOWY-Rejestracja</title>
+
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="body.css">
+    <link rel="stylesheet" href="register.css">
+
+</head>
+<body>
+<div id="all">
+    <div th:replace="header.html::header"></div>
+    <div id="user"><a th:text="${'Użytkownik: '+userLogged}"/></div>
+    <div id="menu_content">
+        <th:block th:if="${userRole==null || userRole=='USER'}">
+            <div th:replace="menu.html::menu"></div>
+        </th:block>
+        <th:block th:if="${userRole=='SUPER_ADMIN'}">
+            <div th:replace="menuSuperAdmin.html::menuSuperAdmin"></div>
+        </th:block>
+        <th:block th:if="${userRole=='ADMIN'}">
+            <div th:replace="menuAdmin.html::menuAdmin"></div>
+        </th:block>
+        <div id="content">
+            <h1>Rejestracja</h1><hr>
+            <div id="login">
+                <form action="/register" method="post">
+                    <p id="error" th:text="${errorMessage}"></p>
+                    <input type="text" placeholder="login" name="login" th:field="*{user.name}">
+                    <input type="password" placeholder="password" name="pass" th:field="*{user.pass}">
+                    <input type="password" placeholder="password" name="pass2">
+                    <input type="submit" value="Zarejestruj">
+                </form>
+            </div>
+        </div>
+    </div>
+    <div th:replace="footer.html::footer"></div>
+</div>
+</body>
+</html>

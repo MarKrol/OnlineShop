@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>SKLEP INTERNETOWY</title>
+
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="body.css">
+    <link rel="stylesheet" href="userList.css">
+
+</head>
+<body>
+<div id="all">
+    <div th:replace="header.html::header"></div>
+    <div id="user"><a th:text="${'Użytkownik: '+userLogged}"/></div>
+    <div id="menu_content">
+        <th:block th:if="${userRole==null || userRole=='USER'}">
+            <div th:replace="menu.html::menu"></div>
+        </th:block>
+        <th:block th:if="${userRole=='SUPER_ADMIN'}">
+            <div th:replace="menuSuperAdmin.html::menuSuperAdmin"></div>
+        </th:block>
+        <th:block th:if="${userRole=='ADMIN'}">
+            <div th:replace="menuAdmin.html::menuAdmin"></div>
+        </th:block>
+        <div id="content">
+            <h1>Administratorzy</h1><hr>
+            <th:block th:each="user1 : ${userObject}">
+                <th:block th:if="${user1.userRole.name()=='ADMIN'}">
+                    <div id="userList">
+                        <p th:text="${'ID: '+user1.id}"></p>
+                        <p th:text="${'Nazwa: '+user1.name}"></p>
+                        <p th:text="${'Typ konta: '+user1.userRole}"></p>
+                        <div id="upgrade">
+                            <a th:href="${'/userAdmin/'+user1.id}">Nadaj uprawnienie USER</a>
+                        </div>
+                    </div>
+                </th:block>
+            </th:block>
+        </div>
+    </div>
+    <div th:replace="footer.html::footer"></div>
+</div>
+</body>
+</html>

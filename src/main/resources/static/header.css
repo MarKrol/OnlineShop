@@ -1,0 +1,13 @@
+#header{
+    background-color: #5959AB;
+    height: 80px;
+    color: #C0C0C0;
+    font-family: Verdana, Helvetica, Arial, sans-serif;
+    font-size: 28px;
+    font-style: italic;
+}
+
+#header p{
+    text-align:center;
+    padding-top: 20px;
+}

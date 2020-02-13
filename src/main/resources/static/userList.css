@@ -1,0 +1,12 @@
+#userList{
+    border-width: 1px;
+    border-style: dotted;
+    border-color: black;
+    margin: 10px auto 0 auto;
+    padding-left: 20px;
+    padding-bottom: 10px;
+}
+
+#upgrade a{
+    font-weight:bold;
+}
