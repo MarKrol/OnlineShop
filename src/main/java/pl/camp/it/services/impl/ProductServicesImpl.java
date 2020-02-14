@@ -65,8 +65,150 @@ public class ProductServicesImpl implements IProductServices {
         productDAO.saveChangeProduct(tempolary);
     }
 
+    @Override
+    public List<Product> showAvailableProducts(List<Product> productListDB, List<Product> sessionObject){
+        List<Product> tempListProducts = new ArrayList<>();
+
+        List<Product> temp=new ArrayList<>();
+
+        if(productListDB!=null){
+            if (sessionObject!=null) {
+                tempListProducts=sessionObject;
+            }
+            for(Product product: productListDB){
+                for(int i=0; i<=tempListProducts.size()-1;i++){
+                    if (product.getId()==tempListProducts.get(i).getId()){
+                        if (product.getAvailability()-tempListProducts.get(i).getAvailability()<=0){
+                            product.setState(false);
+                            break;
+                        } else{
+                            product.setState(true);
+                        }
+                    }
+                }
+            }
+
+            for(Product product : productListDB){
+                if(product.isState()){
+                    temp.add(product);
+                }
+            }
+
+        }
+        return temp;
+    }
+
+    @Override
+    public Product rememberProducers(Product product){
+        List<Product> productList=productDAO.getListProduct();
+
+        Product tempProduct=new Product();
+
+        for(Product temp: productList) {
+            if (temp.getId()==product.getId()) {
+                if (temp.getAvailability()>=product.getAvailability()){
+                    temp.setAvailability(product.getAvailability());
+                    if (temp.getAvailability()==0){
+                        temp.setState(false);
+                    }else {
+                        temp.setAvailability(product.getAvailability());
+                        temp.setState(true);
+                    }
+                    tempProduct=temp;
+                }
+            break;
+            }
+        }
+        return tempProduct;
+    }
+
+    @Override
+    public boolean isAvailableProduct(Product product, List<Product> productList1){
+        List<Product> productList=productDAO.getListProduct();
+
+        boolean isAvailable=false;
+        int available=product.getAvailability();
+
+
+        if (productList1!=null){
+            for (Product temp:productList1){
+                if(temp.getId()==product.getId()){
+                    available=available+temp.getAvailability();
+                }
+            }
+        }
+
+        for(Product temp: productList) {
+            if (temp.getId()==product.getId()) {
+                if (temp.getAvailability()>=available){
+                    isAvailable=true;
+                } else{
+                    isAvailable=false;
+                }
+            }
+        }
+        return isAvailable;
+    }
+
+    @Override
+    public Double priceSum(List<Product> productList){
+        double price=0.00;
+        if (productList!=null) {
+            for (Product temp : productList) {
+                price = price + (temp.getPrice()*temp.getAvailability());
+            }
+        }
+        return price;
+    }
+
     private int randomId(){
         return new Random().nextInt();
+    }
+
+    @Override
+    public List<Product> orderedList(List<Product> productList){
+        List<Product> temp =new ArrayList<>();
+        int sum=0;
+
+        boolean add=false;
+        if (productList!=null) {
+            for (Product product : productList) {
+                add = false;
+                if (temp.isEmpty()) {
+                    temp.add(product);
+                    add = true;
+                } else {
+                    for (int i = 0; i <= temp.size()-1; i++) {
+                        if (product.getId() == temp.get(i).getId()) {
+                            sum=temp.get(i).getAvailability() + product.getAvailability();
+                            temp.get(i).setAvailability(sum);
+                            add = true;
+                            break;
+                        }
+                    }
+                }
+                if (!add) {
+                    temp.add(product);
+                }
+            }
+            return temp;
+        } else {
+            return null;
+        }
+    }
+
+    @Override
+    public List<Product> deleteProductBasket(int id, List<Product> list){
+
+        if (list!=null){
+            for(Product product:list){
+                if(id==product.getId()){
+                    list.remove(product);
+                    break;
+                }
+            }
+        }
+        return list;
     }
 }
 

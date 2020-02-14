@@ -2,25 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a93ffc35-70d7-4958-abbc-e2a305558664" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/camp/it/services/IProductServices.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/camp/it/services/impl/ProductServicesImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/products.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/detailsProduct.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/editProduct.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/products.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/basket.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/productsUser.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/addToCart.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/basket.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/productsUser.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/camp/it/controllers/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/camp/it/controllers/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/camp/it/dao/IProductDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/camp/it/dao/IProductDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/camp/it/dao/impl/IProductDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/camp/it/dao/impl/IProductDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/camp/it/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/camp/it/controllers/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/camp/it/services/IProductServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/camp/it/services/IProductServices.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/camp/it/services/impl/ProductServicesImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/camp/it/services/impl/ProductServicesImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pl/camp/it/session/SessionObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/camp/it/session/SessionObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/products.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/products.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/menuAdmin.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/menuAdmin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/menuSuperAdmin.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/menuSuperAdmin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/camp/it/controllers/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/camp/it/controllers/AdminController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/camp/it/dao/impl/IProductDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/camp/it/dao/impl/IProductDAOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/menu.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pl/camp/it/controllers/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/camp/it/controllers/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pl/camp/it/services/IProductServices.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/camp/it/services/IProductServices.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pl/camp/it/services/impl/ProductServicesImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/camp/it/services/impl/ProductServicesImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/pl/camp/it/session/SessionObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/camp/it/session/SessionObject.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/products.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/products.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/menu.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,50 +115,50 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="178" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1581409819982" />
-    <state x="709" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1581600555473">
+    <state x="709" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1581681982500">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="709" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1581600555473" />
-    <state x="765" y="203" key="#com.intellij.ide.util.MemberChooser" timestamp="1581638988625">
+    <state x="709" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1581681982500" />
+    <state x="765" y="203" key="#com.intellij.ide.util.MemberChooser" timestamp="1581670026485">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="203" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1581638988625" />
+    <state x="765" y="203" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1581670026485" />
     <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1581543257125">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1581543257125" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1581645601228">
+    <state width="1877" height="348" key="GridCell.Tab.0.bottom" timestamp="1581702604458">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1581645601228" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1581645601228">
+    <state width="1877" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1581702604458" />
+    <state width="1877" height="348" key="GridCell.Tab.0.center" timestamp="1581702604458">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1581645601228" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1581645601228">
+    <state width="1877" height="348" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1581702604458" />
+    <state width="1877" height="348" key="GridCell.Tab.0.left" timestamp="1581702604458">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1581645601228" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1581645601228">
+    <state width="1877" height="348" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1581702604458" />
+    <state width="1877" height="348" key="GridCell.Tab.0.right" timestamp="1581702604458">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1581645601228" />
-    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1581645601213">
+    <state width="1877" height="348" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1581702604458" />
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1581702604458">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1581645601213" />
-    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1581645601213">
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1581702604458" />
+    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1581702604458">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1581645601213" />
-    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1581645601213">
+    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1581702604458" />
+    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1581702604458">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1581645601213" />
-    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1581645601213">
+    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1581702604458" />
+    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1581702604458">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1581645601213" />
+    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1581702604458" />
     <state x="440" y="94" key="SettingsEditor" timestamp="1581521615968">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -169,15 +167,17 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1581422183355" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1581631610355">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1581680851082">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1581631610355" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1581680851082" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
       <configuration name="Application">
-        <watch expression="!user.getUserRole().toString().equals(&quot;SUPER_USER&quot;)" language="JAVA" />
+        <watch expression="temp.get(i).getAvailability()" language="JAVA" />
+        <watch expression="product.getAvailability()" language="JAVA" />
+        <watch expression="temp.get(i).setAvailability(temp.get(i).getAvailability() + product.getAvailability())" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>

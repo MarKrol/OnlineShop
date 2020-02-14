@@ -3,15 +3,18 @@ package pl.camp.it.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+import pl.camp.it.dao.IProductDAO;
+import pl.camp.it.dao.IUserDAO;
+import pl.camp.it.model.Product;
 import pl.camp.it.model.User;
+import pl.camp.it.services.IProductServices;
 import pl.camp.it.services.IUserServices;
 import pl.camp.it.session.SessionObject;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class UserController {
@@ -21,6 +24,12 @@ public class UserController {
 
     @Resource
     SessionObject sessionObject;
+
+    @Autowired
+    IProductServices productServices;
+
+    @Autowired
+    IProductDAO productDAO;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index(Model model){
@@ -129,5 +138,62 @@ public class UserController {
             model.addAttribute("userLogged", "Gość");
         }
         return "logout";
+    }
+
+    @RequestMapping(value = "/productsUser/{id}",method = RequestMethod.GET)
+    public String goToPageBuyProducts(@PathVariable int id, Model model){
+        sessionObject.setProductID(id);
+        return "redirect:/addToCart";
+    }
+
+    @RequestMapping(value = "/productsUser", method = RequestMethod.GET)
+    public String showAllProducts(Model model){
+        model.addAttribute("listProducts", productServices.showAvailableProducts(productDAO.getListProduct(),sessionObject.getProductList()));
+        return "productsUser";
+    }
+
+    @RequestMapping(value = "/addToCart",method = RequestMethod.GET)
+    public String addToCart(Model model){
+        Product tempProduct = productServices.findProductById(sessionObject.getProductID());
+        tempProduct.setAvailability(1);
+
+        model.addAttribute("productById", tempProduct);
+        return "addToCart";
+    }
+
+    @RequestMapping(value ="/addToCart", method = RequestMethod.POST)
+    public String insertToCart(@ModelAttribute Product product, Model model){
+
+        if(productServices.isAvailableProduct(product, sessionObject.getProductList())) {
+            if (sessionObject.getProductList()==null){
+                List<Product> productList = new ArrayList<>();
+                productList.add(productServices.rememberProducers(product));
+                sessionObject.setProductList(productList);
+            } else{
+                List<Product> productList = sessionObject.getProductList();
+                productList.add(productServices.rememberProducers(product));
+                sessionObject.setProductList(productList);
+            }
+
+        } else {
+            model.addAttribute("isAvailable","false");
+            return "productsUser";
+        }
+
+        return "redirect:/basket";
+    }
+
+    @RequestMapping(value = "/basket", method = RequestMethod.GET)
+    public String showbasket(Model model){
+        sessionObject.setProductList(productServices.orderedList(sessionObject.getProductList()));
+        model.addAttribute("price",productServices.priceSum(sessionObject.getProductList()));
+        model.addAttribute("listProducts",sessionObject.getProductList());
+        return "basket";
+    }
+
+    @RequestMapping(value = "/basket/{id}", method = RequestMethod.GET)
+    public String deleteProduct(@PathVariable int id, Model model){
+        model.addAttribute("listProducs",productServices.deleteProductBasket(id,sessionObject.getProductList()));
+        return "redirect:/basket";
     }
 }

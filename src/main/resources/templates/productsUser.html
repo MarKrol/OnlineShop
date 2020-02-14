@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>SKLEP INTERNETOWY</title>
+
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="body.css">
+    <link rel="stylesheet" href="productsUser.css">
+</head>
+<body>
+<div id="all">
+    <div th:replace="header.html::header"></div>
+    <div id="user"><a th:text="${'Użytkownik: '+userLogged}"/></div>
+    <div id="menu_content">
+
+        <th:block th:if="${userRole==null || userRole=='USER'}">
+            <div th:replace="menu.html::menu"></div>
+        </th:block>
+        <th:block th:if="${userRole=='SUPER_ADMIN'}">
+            <div th:replace="menuSuperAdmin.html::menuSuperAdmin"></div>
+        </th:block>
+        <th:block th:if="${userRole=='ADMIN'}">
+            <div th:replace="menuAdmin.html::menuAdmin"></div>
+        </th:block>
+
+        <div id="content">
+            <h1>Produkty</h1><hr>
+
+            <div id="products">
+                <form action="/products" method="post">
+                    <input type="text" placeholder="Szukana fraza" autofocus>
+                    <input type="submit" value="find" name="findProductsUser">
+                </form>
+            </div>
+            <th:block th:if="${isAvailable=='false'}">
+                <p style="color: red">Przekroczono stan magazynowy. Produktu nie dodano do bazy!!!</p>
+            </th:block>
+            <th:bloc th:each="product : ${listProducts}">
+                <div id="productList">
+                    <p th:text="${'ID: '+product.id}"></p>
+                    <p th:text="${'Nazwa produktu: '+product.name}"></p>
+                    <div id="show">
+                        <a th:href="${'/productsUser/'+product.id}">Przejdź do zakupu produktu</a>
+                    </div>
+                </div>
+            </th:bloc>
+            </th:block>
+        </div>
+    </div>
+    <div th:replace="footer.html::footer"></div>
+</div>
+</body>
+</html>
