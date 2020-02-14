@@ -9,6 +9,7 @@ import pl.camp.it.model.User;
 public class SessionObject {
     private boolean logged;
     private User user;
+    private int productID;
 
     public boolean isLogged() {
         return logged;
@@ -24,5 +25,13 @@ public class SessionObject {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public int getProductID() {
+        return productID;
+    }
+
+    public void setProductID(int productID) {
+        this.productID = productID;
     }
 }

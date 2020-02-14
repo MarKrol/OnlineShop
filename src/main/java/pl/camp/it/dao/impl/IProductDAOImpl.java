@@ -1,15 +1,32 @@
 package pl.camp.it.dao.impl;
 
+import org.springframework.stereotype.Repository;
 import pl.camp.it.dao.IProductDAO;
 import pl.camp.it.model.Product;
+import pl.camp.it.model.User;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class IProductDAOImpl implements IProductDAO {
 
-    private String fileName=".\\src\\mai\\resources\\products.txt";
+    private String fileName=".\\src\\main\\resources\\products.txt";
+
+    @Override
+    public void saveChangeProduct(List<Product> productList) {
+        try(BufferedWriter bufferedWriter=new BufferedWriter(new FileWriter(fileName))){
+            for (Product product: productList) {
+                bufferedWriter.write(product.toString());
+                bufferedWriter.newLine();
+            }
+        }catch(FileNotFoundException e){
+            e.getMessage();
+        } catch (IOException e){
+            e.getMessage();
+        }
+    }
 
     @Override
     public void persistProduct(Product product) {
