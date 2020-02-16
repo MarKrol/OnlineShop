@@ -46,24 +46,23 @@ public class OrderServicesImpl implements IOrderServices {
     }
 
     @Override
-    public boolean upgradeProductDataBase(List<Product> productList){
+    public List<Product> upgradeProductDataBase(List<Product> productList){
         List<Product> tempListProduct = productDAO.getListProduct();
-
-        boolean isUpgrade=true;
+        List<Product> temp = new ArrayList<>();
 
         if (productList!=null) {
             for (Product product : productList) {
                 for (Product product1 : tempListProduct) {
                     if (product.getId() == product1.getId()) {
                         if (product1.getAvailability() - product.getAvailability() < 0) {
-                            isUpgrade = false;
+                            temp.add(product);
                             break;
                         }
                     }
                 }
             }
         }
-        return isUpgrade;
+        return temp;
     }
 
     @Override
@@ -104,4 +103,18 @@ public class OrderServicesImpl implements IOrderServices {
         return price;
     }
 
+    @Override
+    public List<Product> inventoryExceeded(List<Product> orderUser, List<Product> availability){
+        List<Product> tempolary = new ArrayList<>();
+        for (Product orderU: orderUser){
+            for(Product availab: availability){
+                if (orderU.getId()==availab.getId()){
+                    tempolary.add(orderU);
+                    break;
+                }
+            }
+        }
+
+        return tempolary;
+    }
 }

@@ -3,6 +3,7 @@ package pl.camp.it.services.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.camp.it.dao.IProductDAO;
+import pl.camp.it.model.Order;
 import pl.camp.it.model.Product;
 import pl.camp.it.services.IProductServices;
 
@@ -210,5 +211,6 @@ public class ProductServicesImpl implements IProductServices {
         }
         return list;
     }
+
 }
 

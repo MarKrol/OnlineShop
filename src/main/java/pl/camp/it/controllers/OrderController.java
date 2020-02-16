@@ -8,15 +8,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import pl.camp.it.dao.IOrderDAO;
+import pl.camp.it.dao.IProductDAO;
 import pl.camp.it.model.Order;
+import pl.camp.it.model.Product;
 import pl.camp.it.services.IOrderServices;
 import pl.camp.it.session.SessionObject;
 
 import javax.annotation.Resource;
 
-import javax.validation.Valid;
-
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,15 +31,23 @@ public class OrderController {
 
     @RequestMapping(value = "basket", method = RequestMethod.POST)
     public String order(Model model){
+        List<Product> products = new ArrayList<>();
         if (sessionObject.isLogged()&& sessionObject.getUser().getUserRole().toString()=="USER") {
             model.addAttribute("userRole", sessionObject.getUser().getUserRole().toString());
             model.addAttribute("userLogged", sessionObject.getUser().getName());
-            if (orderServices.upgradeProductDataBase(sessionObject.getProductList())) {
+            products=orderServices.upgradeProductDataBase(sessionObject.getProductList());
+            if (products.size()==0) {
                 orderServices.addOrderToFile(sessionObject.getUser(), sessionObject.getProductList());
                 orderServices.saveUpgradeProductDataBase(sessionObject.getProductList());
                 sessionObject.setProductList(null);
                 return "redirect:/productsUser";
             } else {
+                model.addAttribute("error","Przekroczono stan magazynowy poniższych " +
+                        "produktów!!!");
+                model.addAttribute("userRole", sessionObject.getUser().getUserRole().toString());
+                model.addAttribute("userLogged", sessionObject.getUser().getName());
+                model.addAttribute("price",0.00);
+                model.addAttribute("listProducts", products);
                 return "basket";
             }
         } else{

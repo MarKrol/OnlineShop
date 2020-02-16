@@ -28,13 +28,13 @@
 
         <div id="content">
             <h1>Twoje zamówienie</h1><hr>
-
+            <p th:text="${error}"></p>
             <th:bloc th:each="product : ${listProducts}">
                 <div id="productList">
                     <p th:text="${'ID: '+product.id}"></p>
                     <p th:text="${'Nazwa produktu: '+product.name}"></p>
                     <p th:text="${'Ilość: '+product.availability}"></p>
-                    <p th:text="${'Kwota do zapłaty: '+product.availability * product.price}"></p>
+                    <p th:text="${'Kwota do zapłaty: '+product.availability * product.price+ ' zł'}"></p>
                     <div id="show">
                         <a th:href="${'/basket/'+product.id}">Usuń produkt z koszyka</a>
                     </div>

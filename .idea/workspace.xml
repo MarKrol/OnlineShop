@@ -2,39 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a93ffc35-70d7-4958-abbc-e2a305558664" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/findAdmin.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/camp/it/controllers/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/camp/it/controllers/AdminController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pl/camp/it/controllers/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/camp/it/controllers/OrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/camp/it/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/camp/it/controllers/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pl/camp/it/services/IOrderServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/camp/it/services/IOrderServices.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/camp/it/services/IUserServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/camp/it/services/IUserServices.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pl/camp/it/services/impl/OrderServicesImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/camp/it/services/impl/OrderServicesImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/camp/it/services/impl/UserServicesImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/camp/it/services/impl/UserServicesImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/camp/it/services/impl/ProductServicesImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/camp/it/services/impl/ProductServicesImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/order.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/order.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/products.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/products.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/addToCart.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/addToCart.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/changeStatus.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/changeStatus.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/detailsProduct.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/detailsProduct.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/editProduct.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/editProduct.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/historyAdmin.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/historyAdmin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/historyOrder.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/historyOrder.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/products.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/products.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/productsUser.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/productsUser.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/users.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/users.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/basket.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/basket.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/order.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/order.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/camp/it/controllers/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/camp/it/controllers/AdminController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/pl/camp/it/controllers/OrderController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/camp/it/controllers/OrderController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/camp/it/controllers/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/camp/it/controllers/UserController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/pl/camp/it/services/IOrderServices.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/camp/it/services/IOrderServices.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/camp/it/services/IUserServices.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/camp/it/services/IUserServices.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/pl/camp/it/services/impl/OrderServicesImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/camp/it/services/impl/OrderServicesImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/camp/it/services/impl/UserServicesImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/camp/it/services/impl/UserServicesImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/changeStatus.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/changeStatus.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/historyAdmin.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/historyAdmin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/historyOrder.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/historyOrder.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/products.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/products.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/productsUser.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/productsUser.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,38 +126,38 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1581860260839" />
-    <state width="1877" height="347" key="GridCell.Tab.0.bottom" timestamp="1581887943351">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1581892693332">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="347" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1581887943351" />
-    <state width="1877" height="347" key="GridCell.Tab.0.center" timestamp="1581887943351">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1581892693332" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1581892693332">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="347" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1581887943351" />
-    <state width="1877" height="347" key="GridCell.Tab.0.left" timestamp="1581887943351">
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1581892693332" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1581892693329">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="347" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1581887943351" />
-    <state width="1877" height="347" key="GridCell.Tab.0.right" timestamp="1581887943351">
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1581892693329" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1581892693332">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="347" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1581887943351" />
-    <state width="1877" height="347" key="GridCell.Tab.1.bottom" timestamp="1581887943352">
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1581892693332" />
+    <state width="1877" height="347" key="GridCell.Tab.1.bottom" timestamp="1581892693316">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="347" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1581887943352" />
-    <state width="1877" height="347" key="GridCell.Tab.1.center" timestamp="1581887943351">
+    <state width="1877" height="347" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1581892693316" />
+    <state width="1877" height="347" key="GridCell.Tab.1.center" timestamp="1581892693316">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="347" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1581887943351" />
-    <state width="1877" height="347" key="GridCell.Tab.1.left" timestamp="1581887943351">
+    <state width="1877" height="347" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1581892693316" />
+    <state width="1877" height="347" key="GridCell.Tab.1.left" timestamp="1581892693316">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="347" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1581887943351" />
-    <state width="1877" height="347" key="GridCell.Tab.1.right" timestamp="1581887943351">
+    <state width="1877" height="347" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1581892693316" />
+    <state width="1877" height="347" key="GridCell.Tab.1.right" timestamp="1581892693316">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="347" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1581887943351" />
+    <state width="1877" height="347" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1581892693316" />
     <state x="440" y="94" key="SettingsEditor" timestamp="1581521615968">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
