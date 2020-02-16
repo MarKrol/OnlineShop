@@ -1,0 +1,9 @@
+package pl.camp.it.model;
+
+public enum OrderState {
+    PRZYJETO_DO_REALIZACJI,
+    W_TRAKCIE_REALIZACJI,
+    PRZYGOTOWANE_DO_WYSYŁKI,
+    ZAMÓWIENIE_WYSŁANE,
+    ZAMÓWIENIE_DOSTARCZONE;
+}

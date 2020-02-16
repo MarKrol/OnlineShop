@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>SKLEP INTERNETOWY</title>
+
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="body.css">
+    <link rel="stylesheet" href="productsUser.css">
+</head>
+<body>
+<div id="all">
+    <div th:replace="header.html::header"></div>
+    <div id="user"><a th:text="${'Użytkownik: '+userLogged}"/></div>
+    <div id="menu_content">
+
+        <th:block th:if="${userRole==null || userRole=='USER'}">
+            <div th:replace="menu.html::menu"></div>
+        </th:block>
+        <th:block th:if="${userRole=='SUPER_ADMIN'}">
+            <div th:replace="menuSuperAdmin.html::menuSuperAdmin"></div>
+        </th:block>
+        <th:block th:if="${userRole=='ADMIN'}">
+            <div th:replace="menuAdmin.html::menuAdmin"></div>
+        </th:block>
+
+        <div id="content">
+            <h1>Zmiana statusu zamówienia</h1><hr>
+
+            <th:block th:each="choose : ${tempOrder}">
+                <div id="productList">
+                    <p th:text="${'ID zamówienia: '+choose.id}"></p>
+                    <p th:text="${'Data zamówienia: '+choose.localDate.toString()}"></p>
+                    <b><p th:text="${'Status zamówienia: '+choose.orderState.toString()}"></p></b>
+
+                    <form action="/historyAdmin" method="post">
+                        <label class="radio"><input type="Radio" id="R1" name="status" value="PRZYJETO_DO_REALIZACJI">
+                            PRZYJETO DO REALIZACJI</label>
+
+                        <label class="radio"><input type="Radio" id="R2" name="status" value="W_TRAKCIE_REALIZACJI">
+                            W TRAKCIE REALIZACJI</label>
+
+                        <label class="radio"><input type="Radio" id="R3" name="status" value="PRZYGOTOWANE_DO_WYSYŁKI">
+                            PRZYGOTOWANE DO WYSYŁKI</label>
+
+                        <label class="radio"><input type="Radio" id="R4" name="status" value="ZAMÓWIENIE_WYSŁANE">
+                            ZAMÓWIENIE WYSŁANE</label>
+
+                        <label class="radio"><input type="Radio" id="R5" name="status" value="ZAMÓWIENIE_DOSTARCZONE">
+                            ZAMÓWIENIE DOSTARCZONE</label>
+                        <input type="submit" value="Zmień status" name="status">
+                    </form>
+                    <hr>
+                    <th:block th:each="product : ${choose.productList}">
+                        <p th:text="${'ID produktu: '+product.id}"></p>
+                        <p th:text="${'Nazwa produktu: '+product.name}"></p>
+                        <p th:text="${'Ilość: '+product.availability}"></p>
+                        <p th:text="${'Cena produktu: '+product.price * product.availability+' zł'}"></p>
+                        <hr>
+                    </th:block>
+                    <b><p th:text="${'Do zapłaty: '+price+' zł'}"></p></b>
+                </div>
+            </th:block>
+        </div>
+    </div>
+    <div th:replace="footer.html::footer"></div>
+</div>
+</body>
+</html>

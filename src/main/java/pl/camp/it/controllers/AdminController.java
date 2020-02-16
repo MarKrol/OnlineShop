@@ -5,15 +5,12 @@ import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
+import pl.camp.it.dao.IOrderDAO;
 import pl.camp.it.dao.IProductDAO;
 import pl.camp.it.dao.IUserDAO;
-import pl.camp.it.model.Product;
-import pl.camp.it.model.User;
-import pl.camp.it.model.UserRole;
+import pl.camp.it.model.*;
+import pl.camp.it.services.IOrderServices;
 import pl.camp.it.services.IProductServices;
 import pl.camp.it.services.IUserServices;
 import pl.camp.it.session.SessionObject;
@@ -33,6 +30,10 @@ public class AdminController {
     IProductDAO productDAO;
     @Autowired
     IProductServices productServices;
+    @Autowired
+    IOrderServices orderServices;
+    @Autowired
+    IOrderDAO orderDAO;
 
     @Resource
     SessionObject sessionObject;
@@ -228,5 +229,62 @@ public class AdminController {
             return "redirect:/index";
         }
     }
+
+    @RequestMapping(value = "historyAdmin",method = RequestMethod.GET)
+    public String historyAdmin(Model model){
+
+        if (sessionObject.isLogged()&& (sessionObject.getUser().getUserRole().toString()=="ADMIN"
+                || sessionObject.getUser().getUserRole().toString()=="SUPER_ADMIN")) {
+            model.addAttribute("userRole", sessionObject.getUser().getUserRole().toString());
+            model.addAttribute("userLogged", sessionObject.getUser().getName());
+            model.addAttribute("order", orderDAO.getListOrder());
+            return "historyAdmin";
+        }else{
+            return "redirect:/login";
+        }
+    }
+
+
+    @RequestMapping(value ="/historyAdmin", method = RequestMethod.POST, params = "Admin=Wyświetl zamówenie")
+    public String showAdmin(@RequestParam String choose, Model model){
+        List<Order> tempOrder=new ArrayList<>();
+
+        if (sessionObject.isLogged()&& (sessionObject.getUser().getUserRole().toString()=="ADMIN"
+                || sessionObject.getUser().getUserRole().toString()=="SUPER_ADMIN")) {
+            model.addAttribute("userRole", sessionObject.getUser().getUserRole().toString());
+            model.addAttribute("userLogged", sessionObject.getUser().getName());
+            List<Order> order1 = orderDAO.getListOrder();
+            for(Order temp: order1){
+                if(Integer.parseInt(choose)==temp.getId()){
+                    tempOrder.add(temp);
+                }
+            }
+            model.addAttribute("price", orderServices.priceReturnOrderUser(tempOrder));
+            model.addAttribute("tempOrder",tempOrder);
+            model.addAttribute("order", orderDAO.getListOrder());
+
+            return "historyAdmin";
+        }else{
+            return "redirect:/login";
+        }
+    }
+
+    @RequestMapping(value = "/historyAdmin", method = RequestMethod.POST, params = "status=Zmień status")
+    public String changeStatusOrder(@RequestParam("status") String value, Model model){
+        List<Order> orders=orderDAO.getListOrder();
+        Order tempOrder = new Order();
+        for(Order order: orders){
+            if (Integer.parseInt("1")==order.getId()){
+                order.setOrderState(OrderState.valueOf(value));
+                tempOrder=order;
+                break;
+            }
+        }
+        orderDAO.saveChangeOrder(orders);
+        model.addAttribute("tempOrder", tempOrder);
+        model.addAttribute("order", orderDAO.getListOrder());
+        return "historyAdmin";
+    }
+
 }
 

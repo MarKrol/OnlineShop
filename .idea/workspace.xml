@@ -2,23 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a93ffc35-70d7-4958-abbc-e2a305558664" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/basket.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/productsUser.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/addToCart.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/basket.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/productsUser.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/camp/it/controllers/OrderController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/camp/it/dao/IOrderDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/camp/it/dao/impl/OrderDAOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/camp/it/model/OrderState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/camp/it/services/IOrderServices.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/camp/it/services/impl/OrderServicesImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/order.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/changeStatus.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/historyAdmin.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/historyOrder.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/camp/it/controllers/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/camp/it/controllers/AdminController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pl/camp/it/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/camp/it/controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/camp/it/services/IProductServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/camp/it/services/IProductServices.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/camp/it/services/impl/ProductServicesImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/camp/it/services/impl/ProductServicesImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/camp/it/session/SessionObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/camp/it/session/SessionObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/camp/it/model/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/camp/it/model/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/products.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/products.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/menu.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/menuAdmin.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/menuAdmin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/menuSuperAdmin.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/menuSuperAdmin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pl/camp/it/controllers/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/camp/it/controllers/AdminController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/pl/camp/it/controllers/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/camp/it/controllers/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/camp/it/services/IProductServices.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/camp/it/services/IProductServices.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/camp/it/services/impl/ProductServicesImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/camp/it/services/impl/ProductServicesImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/camp/it/session/SessionObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/camp/it/session/SessionObject.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pl/camp/it/model/Order.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/camp/it/model/Order.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/products.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/products.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/menu.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/menuAdmin.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/menuAdmin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/menuSuperAdmin.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/menuSuperAdmin.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,9 +36,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="Enum" />
         <option value="HTML File" />
       </list>
     </option>
@@ -54,7 +62,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../IT-CAMP1-2020.02.08-BookRent-master" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../BMI" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -119,46 +127,50 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="709" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1581681982500" />
-    <state x="765" y="203" key="#com.intellij.ide.util.MemberChooser" timestamp="1581670026485">
+    <state x="765" y="203" key="#com.intellij.ide.util.MemberChooser" timestamp="1581719194217">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="203" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1581670026485" />
-    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1581543257125">
+    <state x="765" y="203" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1581719194217" />
+    <state width="407" height="466" key="DebuggerActiveHint" timestamp="1581729146108">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1581543257125" />
-    <state width="1877" height="348" key="GridCell.Tab.0.bottom" timestamp="1581702604458">
+    <state width="407" height="466" key="DebuggerActiveHint/0.0.1920.1040@0.0.1920.1040" timestamp="1581729146108" />
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1581811359488">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1581702604458" />
-    <state width="1877" height="348" key="GridCell.Tab.0.center" timestamp="1581702604458">
+    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1581811359488" />
+    <state width="1877" height="348" key="GridCell.Tab.0.bottom" timestamp="1581814667671">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1581702604458" />
-    <state width="1877" height="348" key="GridCell.Tab.0.left" timestamp="1581702604458">
+    <state width="1877" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1581814667671" />
+    <state width="1877" height="348" key="GridCell.Tab.0.center" timestamp="1581814667671">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1581702604458" />
-    <state width="1877" height="348" key="GridCell.Tab.0.right" timestamp="1581702604458">
+    <state width="1877" height="348" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1581814667671" />
+    <state width="1877" height="348" key="GridCell.Tab.0.left" timestamp="1581814667671">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1581702604458" />
-    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1581702604458">
+    <state width="1877" height="348" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1581814667671" />
+    <state width="1877" height="348" key="GridCell.Tab.0.right" timestamp="1581814667671">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1581702604458" />
-    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1581702604458">
+    <state width="1877" height="348" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1581814667671" />
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1581814667671">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1581702604458" />
-    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1581702604458">
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1581814667671" />
+    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1581814667671">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1581702604458" />
-    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1581702604458">
+    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1581814667671" />
+    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1581814667671">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1581702604458" />
+    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1581814667671" />
+    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1581814667671">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1581814667671" />
     <state x="440" y="94" key="SettingsEditor" timestamp="1581521615968">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -167,17 +179,34 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1581422183355" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1581680851082">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1581810895237">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1581680851082" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1581810895237" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/pl/camp/it/controllers/AdminController.java</url>
+          <line>275</line>
+          <option name="timeStamp" value="97" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/pl/camp/it/controllers/AdminController.java</url>
+          <line>282</line>
+          <option name="timeStamp" value="98" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/pl/camp/it/controllers/AdminController.java</url>
+          <line>285</line>
+          <option name="timeStamp" value="99" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
-        <watch expression="temp.get(i).getAvailability()" language="JAVA" />
-        <watch expression="product.getAvailability()" language="JAVA" />
-        <watch expression="temp.get(i).setAvailability(temp.get(i).getAvailability() + product.getAvailability())" language="JAVA" />
+        <watch expression="s" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>
