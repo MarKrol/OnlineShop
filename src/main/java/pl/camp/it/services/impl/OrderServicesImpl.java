@@ -22,6 +22,18 @@ public class OrderServicesImpl implements IOrderServices {
     @Autowired
     IProductDAO productDAO;
 
+    private int returnId;
+
+    @Override
+    public int getReturnId() {
+        return returnId;
+    }
+
+    @Override
+    public void setReturnId(int returnId) {
+        this.returnId = returnId;
+    }
+
     @Override
     public void addOrderToFile(User user, List<Product> productList){
         Order order=new Order();
@@ -91,4 +103,5 @@ public class OrderServicesImpl implements IOrderServices {
         }
         return price;
     }
+
 }

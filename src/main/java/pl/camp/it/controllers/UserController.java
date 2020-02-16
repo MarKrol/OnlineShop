@@ -132,6 +132,7 @@ public class UserController {
             model.addAttribute("errorMessage","Zostałeś wylogowany. Zaloguj się ponownie!!!");
             sessionObject.setLogged(false);
             sessionObject.setUser(null);
+            sessionObject.setProductList(null);
         }else{
             model.addAttribute("errorMessage", "Zaloguj się, aby się wylogować!!!");
             model.addAttribute("userLogged", "Gość");
@@ -153,7 +154,7 @@ public class UserController {
 
     @RequestMapping(value = "/productsUser", method = RequestMethod.GET)
     public String showAllProducts(Model model){
-        if (sessionObject.getProductList()==null){
+        if (sessionObject.getUser()==null){
             model.addAttribute("userLogged", "Gość");
         }else {
             model.addAttribute("userRole", sessionObject.getUser().getUserRole().toString());
@@ -161,6 +162,22 @@ public class UserController {
         }
         model.addAttribute("listProducts", productServices.showAvailableProducts
                                    (productDAO.getListProduct(), sessionObject.getProductList()));
+        return "productsUser";
+    }
+
+    @RequestMapping(value="/productsUser", method = RequestMethod.POST)
+    public String showAllProductsFilter(@RequestParam String filter, Model model){
+        if (sessionObject.getUser()==null){
+            model.addAttribute("userLogged", "Gość");
+        }else {
+            model.addAttribute("userRole", sessionObject.getUser().getUserRole().toString());
+            model.addAttribute("userLogged", sessionObject.getUser().getName());
+        }
+
+        List<Product> filters=userServices.filtrProducts(productServices.showAvailableProducts
+                (productDAO.getListProduct(), sessionObject.getProductList()), filter);
+
+        model.addAttribute("listProducts", filters);
         return "productsUser";
     }
 

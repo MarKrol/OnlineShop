@@ -12,4 +12,7 @@ public interface IOrderServices {
     void saveUpgradeProductDataBase(List<Product> productList);
     List<Order> returnOrderUser(int idUser, List<Order> orders);
     double priceReturnOrderUser(List<Order> orders);
+    int getReturnId();
+    void setReturnId(int returnId);
+
 }

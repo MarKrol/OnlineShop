@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="header.css">
     <link rel="stylesheet" href="footer.css">
     <link rel="stylesheet" href="body.css">
-    <link rel="stylesheet" href="products.css">
+    <link rel="stylesheet" href="productsUser.css">
 </head>
 <body>
 <div id="all">
@@ -27,23 +27,28 @@
         </th:block>
 
         <div id="content">
-            <h1>Szczegóły produktu</h1><hr>
+            <h1>Produkty</h1><hr>
 
             <div id="products">
-                <form action="/products" method="post">
-                    <input id="1" type="submit" value="Dodaj produkt" name="addProducts">
-                    <input type="submit" value="Wyświetl wszysztkie produkty" name="showAllProducts">
-                    <input type="submit" value="Znajdź produkty" name="filter">
+                <form action="/findAdmin" method="post">
+                    <input type="text" placeholder="Szukana fraza" name="filters">
+                    <input type="submit" value="Znajdź produkt" name="filter">
                 </form>
             </div>
-            <div id="detailsProduct">
-                    <p th:text="${'ID: '+productById.id}"></p>
-                    <p th:text="${'Nazwa produktu: '+productById.name}"></p>
-                    <p th:text="${'Cena produktu: '+productById.price+' zł'}"></p>
-                    <p th:text="${'Ilość: '+productById.availability}"></p>
-                    <p th:text="${'Produkt dostępny: '+productById.state}"></p>
-                    <a th:href="${'/products/'+productById.id+'/'+productById.name}">EDYTUJ PRODUKT</a>
-            </div>
+            <th:block th:if="${isAvailable=='false'}">
+                <p style="color: red">Przekroczono stan magazynowy. Produktu nie dodano do bazy!!!</p>
+            </th:block>
+            <th:bloc th:each="product : ${listProducts}">
+                <div id="productList">
+                    <p th:text="${'ID: '+product.id}"></p>
+                    <p th:text="${'Nazwa produktu: '+product.name}"></p>
+                    <div id="show">
+                        <a th:href="${'/products/'+product.id}">POKAŻ SZCZEGÓŁY</a>
+                        <a th:href="${'/products/'+product.id+'/'+product.name}">EDYTUJ PRODUKT</a>
+                    </div>
+                </div>
+            </th:bloc>
+            </th:block>
         </div>
     </div>
     <div th:replace="footer.html::footer"></div>

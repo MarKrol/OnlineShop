@@ -159,7 +159,54 @@ public class AdminController {
             model.addAttribute("listProducts", productDAO.getListProduct());
             return "products";
         }else{
-            return "redirect:/index";
+            return "redirect:/login";
+        }
+    }
+
+    @RequestMapping(value="/products", method = RequestMethod.POST, params = "filter=Znajdź produkty")
+    public String showAllProductsFilter(Model model){
+        if (sessionObject.isLogged() && sessionObject.getUser().getUserRole().toString()=="ADMIN" ||
+                sessionObject.getUser().getUserRole().toString()=="SUPER_ADMIN") {
+            model.addAttribute("userRole", sessionObject.getUser().getUserRole().toString());
+            model.addAttribute("userLogged", sessionObject.getUser().getName());
+            return "redirect:/findAdmin";
+        }else{
+            return "redirect:/login";
+        }
+    }
+
+    @RequestMapping(value = "findAdmin", method = RequestMethod.GET)
+    public String findAdmin(Model model){
+        if (sessionObject.isLogged() && sessionObject.getUser().getUserRole().toString()=="ADMIN" ||
+                sessionObject.getUser().getUserRole().toString()=="SUPER_ADMIN") {
+            model.addAttribute("userRole", sessionObject.getUser().getUserRole().toString());
+            model.addAttribute("userLogged", sessionObject.getUser().getName());
+            List<Product> filters = userServices.filtrProducts(productServices.showAvailableProducts
+                    (productDAO.getListProduct(), sessionObject.getProductList()),"");
+
+            model.addAttribute("listProducts", filters);
+
+            return "findAdmin";
+        } else{
+            return "redirect:/login";
+        }
+    }
+
+    @RequestMapping(value="/findAdmin", method = RequestMethod.POST)
+    public String showAllProductsFilters(@RequestParam (name = "filters") String filter, Model model){
+        if (sessionObject.isLogged() && sessionObject.getUser().getUserRole().toString()=="ADMIN" ||
+                sessionObject.getUser().getUserRole().toString()=="SUPER_ADMIN") {
+            model.addAttribute("userRole", sessionObject.getUser().getUserRole().toString());
+            model.addAttribute("userLogged", sessionObject.getUser().getName());
+
+
+            List<Product> filters = userServices.filtrProducts(productServices.showAvailableProducts
+                    (productDAO.getListProduct(), sessionObject.getProductList()), filter);
+
+            model.addAttribute("listProducts", filters);
+            return "findAdmin";
+        } else{
+            return "redirect:/login";
         }
     }
 
@@ -232,7 +279,6 @@ public class AdminController {
 
     @RequestMapping(value = "historyAdmin",method = RequestMethod.GET)
     public String historyAdmin(Model model){
-
         if (sessionObject.isLogged()&& (sessionObject.getUser().getUserRole().toString()=="ADMIN"
                 || sessionObject.getUser().getUserRole().toString()=="SUPER_ADMIN")) {
             model.addAttribute("userRole", sessionObject.getUser().getUserRole().toString());
@@ -253,37 +299,89 @@ public class AdminController {
                 || sessionObject.getUser().getUserRole().toString()=="SUPER_ADMIN")) {
             model.addAttribute("userRole", sessionObject.getUser().getUserRole().toString());
             model.addAttribute("userLogged", sessionObject.getUser().getName());
-            List<Order> order1 = orderDAO.getListOrder();
-            for(Order temp: order1){
-                if(Integer.parseInt(choose)==temp.getId()){
-                    tempOrder.add(temp);
+            if (choose!="") {
+                List<Order> order1 = orderDAO.getListOrder();
+                for (Order temp : order1) {
+                     if (Integer.parseInt(choose) == temp.getId()) {
+                         tempOrder.add(temp);
+                    }
                 }
+                model.addAttribute("price", orderServices.priceReturnOrderUser(tempOrder));
+                model.addAttribute("tempOrder", tempOrder);
             }
-            model.addAttribute("price", orderServices.priceReturnOrderUser(tempOrder));
-            model.addAttribute("tempOrder",tempOrder);
             model.addAttribute("order", orderDAO.getListOrder());
-
             return "historyAdmin";
         }else{
             return "redirect:/login";
         }
     }
 
-    @RequestMapping(value = "/historyAdmin", method = RequestMethod.POST, params = "status=Zmień status")
-    public String changeStatusOrder(@RequestParam("status") String value, Model model){
-        List<Order> orders=orderDAO.getListOrder();
-        Order tempOrder = new Order();
-        for(Order order: orders){
-            if (Integer.parseInt("1")==order.getId()){
-                order.setOrderState(OrderState.valueOf(value));
-                tempOrder=order;
-                break;
-            }
+    @RequestMapping(value="/historyAdmin/{id}", method = RequestMethod.GET)
+    public String changeStatus(@PathVariable int id, Model model){
+        if (sessionObject.isLogged()&& (sessionObject.getUser().getUserRole().toString()=="ADMIN"
+                || sessionObject.getUser().getUserRole().toString()=="SUPER_ADMIN")) {
+            orderServices.setReturnId(id);
+            return "redirect:/changeStatus";
+        }else{
+            return "redirect:/login";
         }
-        orderDAO.saveChangeOrder(orders);
-        model.addAttribute("tempOrder", tempOrder);
-        model.addAttribute("order", orderDAO.getListOrder());
-        return "historyAdmin";
+    }
+
+    @RequestMapping(value="/changeStatus", method = RequestMethod.GET)
+    public String changeStatus(Model model){
+
+        if (sessionObject.isLogged()&& (sessionObject.getUser().getUserRole().toString()=="ADMIN"
+                || sessionObject.getUser().getUserRole().toString()=="SUPER_ADMIN")) {
+            model.addAttribute("userRole", sessionObject.getUser().getUserRole().toString());
+            model.addAttribute("userLogged", sessionObject.getUser().getName());
+
+            List<Order> orders = orderDAO.getListOrder();
+            Order tempOrder = new Order();
+            for (Order order : orders) {
+                if (orderServices.getReturnId() == order.getId()) {
+                    tempOrder = order;
+                    break;
+                }
+            }
+
+            orders.clear();
+            orders.add(tempOrder);
+
+            model.addAttribute("price", orderServices.priceReturnOrderUser(orders));
+            model.addAttribute("tempOrder", tempOrder);
+            model.addAttribute("order", orderDAO.getListOrder());
+
+            return "changeStatus";
+        }else{
+            return "redirect:/login";
+        }
+    }
+
+
+    @RequestMapping(value = "/changeStatus", method = RequestMethod.POST)
+    public String changeStatusOrder(@RequestParam("status") String value, Model model){
+
+        if (sessionObject.isLogged()&& (sessionObject.getUser().getUserRole().toString()=="ADMIN"
+                || sessionObject.getUser().getUserRole().toString()=="SUPER_ADMIN")) {
+            model.addAttribute("userRole", sessionObject.getUser().getUserRole().toString());
+            model.addAttribute("userLogged", sessionObject.getUser().getName());
+
+            List<Order> orders = orderDAO.getListOrder();
+            Order tempOrder = new Order();
+            for (Order order : orders) {
+                if (orderServices.getReturnId() == order.getId()) {
+                    order.setOrderState(OrderState.valueOf(value));
+                    tempOrder = order;
+                    break;
+                }
+            }
+            orderDAO.saveChangeOrder(orders);
+            model.addAttribute("tempOrder", tempOrder);
+            model.addAttribute("order", orderDAO.getListOrder());
+            return "redirect:/historyAdmin";
+        }else{
+            return "redirect:/login";
+        }
     }
 
 }

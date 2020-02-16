@@ -33,13 +33,13 @@
                 <form action="/products" method="post">
                     <input id="1" type="submit" value="Dodaj produkt" name="addProducts">
                     <input type="submit" value="Wyświetl wszysztkie produkty" name="showAllProducts">
-                    <input type="submit" value="Znajdź produkty" name="findProducts">
+                    <input type="submit" value="Znajdź produkty" name="filter">
                 </form>
             </div>
             <div id="detailsProduct">
                     <p th:text="${'ID: '+productById.id}"></p>
                     <p th:text="${'Nazwa produktu: '+productById.name}"></p>
-                    <p th:text="${'Cena produktu: '+productById.price}"></p>
+                    <p th:text="${'Cena produktu: '+productById.price+' zł'}"></p>
                     <p th:text="${'Ilość: '+productById.availability}"></p>
                     <p th:text="${'Produkt dostępny: '+productById.state}"></p>
                     <a th:href="${'/products/'+productById.id+'/'+productById.name}">EDYTUJ PRODUKT</a>

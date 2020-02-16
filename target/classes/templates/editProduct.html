@@ -33,7 +33,7 @@
                 <form action="/products" method="post">
                     <input id="1" type="submit" value="Dodaj produkt" name="addProducts">
                     <input type="submit" value="Wyświetl wszysztkie produkty" name="showAllProducts">
-                    <input type="submit" value="Znajdź produkty" name="findProducts">
+                    <input type="submit" value="Znajdź produkty" name="filter">
                 </form>
             </div>
 
@@ -44,7 +44,7 @@
                     <label>Nazwa produktu:</label>
                     <input type="text" required="required" readonly="readonly" placeholder="Nazwa produktu"
                            th:field="*{productById.name}">
-                    <label>Cena jesnostkowa produktu:</label>
+                    <label>Cena jesnostkowa produktu [zł]:</label>
                     <input type="number" step="0.01" min="0.01" placeholder="Cena jednostkowa produktu"
                                name="priceProduct"  th:field="*{productById.price}" >
                     <label>Ilość:</label>

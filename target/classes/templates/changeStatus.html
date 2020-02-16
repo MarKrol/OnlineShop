@@ -35,7 +35,7 @@
                     <p th:text="${'Data zamówienia: '+choose.localDate.toString()}"></p>
                     <b><p th:text="${'Status zamówienia: '+choose.orderState.toString()}"></p></b>
 
-                    <form action="/historyAdmin" method="post">
+                    <form action="/changeStatus" method="post">
                         <label class="radio"><input type="Radio" id="R1" name="status" value="PRZYJETO_DO_REALIZACJI">
                             PRZYJETO DO REALIZACJI</label>
 
@@ -50,7 +50,7 @@
 
                         <label class="radio"><input type="Radio" id="R5" name="status" value="ZAMÓWIENIE_DOSTARCZONE">
                             ZAMÓWIENIE DOSTARCZONE</label>
-                        <input type="submit" value="Zmień status" name="status">
+                        <input type="submit" value="Zmień status">
                     </form>
                     <hr>
                     <th:block th:each="product : ${choose.productList}">

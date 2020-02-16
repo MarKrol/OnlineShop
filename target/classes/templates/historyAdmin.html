@@ -32,7 +32,7 @@
             <div id="products">
                 <form action="/historyAdmin" method="post">
                     <select style="width: 250px" name="choose" path="orderId">
-                        <option value=""></option>
+                        <option value="">Wybierz ID zamówienia</option>
                         <option th:each="order:${order}" th:value="${order.id}" th:text="${order.id}"></option>
                     </select>
                     <input type="submit" value="Wyświetl zamówenie" name="Admin">
@@ -41,6 +41,7 @@
             <th:block th:each="choose : ${tempOrder}">
                 <div id="productList">
                     <p th:text="${'ID zamówienia: '+choose.id}"></p>
+                    <p th:text="${'Login klienta: '+choose.user.name}"></p>
                     <p th:text="${'Data zamówienia: '+choose.localDate.toString()}"></p>
                     <b><p th:text="${'Status zamówienia: '+choose.orderState.toString()}"></p></b>
                     <a th:href="${'/historyAdmin/'+choose.id}">Zmień status zamówienia</a>

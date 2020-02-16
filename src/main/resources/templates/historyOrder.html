@@ -32,7 +32,7 @@
             <div id="products">
                 <form action="/historyOrder" method="post">
                      <select style="width: 250px" name="choose" path="orderId">
-                        <!--<option value=""></option>-->
+                        <option value="">Wybierz ID zamówienia</option>
                         <option th:each="order:${order}" th:value="${order.id}" th:text="${order.id}"></option>
                     </select>
                     <input type="submit" value="Wyświetl zamówenie usera" name="Order">

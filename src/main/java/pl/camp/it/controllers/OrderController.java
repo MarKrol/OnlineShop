@@ -71,13 +71,16 @@ public class OrderController {
             model.addAttribute("userRole", sessionObject.getUser().getUserRole().toString());
             model.addAttribute("userLogged", sessionObject.getUser().getName());
             List<Order> order1 = orderServices.returnOrderUser(sessionObject.getUser().getId(), orderDAO.getListOrder());
-            for(Order temp: order1){
-                if(Integer.parseInt(choose)==temp.getId()){
-                    tempOrder.add(temp);
+
+            if(choose!="") {
+                for (Order temp : order1) {
+                    if (Integer.parseInt(choose) == temp.getId()) {
+                        tempOrder.add(temp);
+                    }
                 }
+                model.addAttribute("price", orderServices.priceReturnOrderUser(tempOrder));
+                model.addAttribute("tempOrder", tempOrder);
             }
-            model.addAttribute("price", orderServices.priceReturnOrderUser(tempOrder));
-            model.addAttribute("tempOrder",tempOrder);
             model.addAttribute("order",
                     orderServices.returnOrderUser(sessionObject.getUser().getId(), orderDAO.getListOrder()));
 

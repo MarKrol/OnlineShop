@@ -4,10 +4,12 @@ import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.camp.it.dao.IUserDAO;
+import pl.camp.it.model.Product;
 import pl.camp.it.model.User;
 import pl.camp.it.model.UserRole;
 import pl.camp.it.services.IUserServices;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -93,6 +95,17 @@ public class UserServicesImpl implements IUserServices {
     @Override
     public String errorMessage(){
         return this.errorMessage;
+    }
+
+    @Override
+    public List<Product> filtrProducts(List<Product> list, String filter){
+        List<Product> tempProducts=new ArrayList<>();
+        for(Product product: list){
+            if (product.getName().contains(filter)){
+                tempProducts.add(product);
+            }
+        }
+        return tempProducts;
     }
 
 }

@@ -1,6 +1,9 @@
 package pl.camp.it.services;
 
+import pl.camp.it.model.Product;
 import pl.camp.it.model.User;
+
+import java.util.List;
 
 public interface IUserServices {
     boolean userInDataBaseByName(String name);
@@ -9,4 +12,5 @@ public interface IUserServices {
     boolean login(User user);
     String errorMessage();
     User getOnlyUser(User user);
+    List<Product> filtrProducts(List<Product> list1, String filter);
 }

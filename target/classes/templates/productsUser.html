@@ -30,9 +30,9 @@
             <h1>Produkty</h1><hr>
 
             <div id="products">
-                <form action="/products" method="post">
-                    <input type="text" placeholder="Szukana fraza" autofocus>
-                    <input type="submit" value="find" name="findProductsUser">
+                <form action="/productsUser" method="post">
+                    <input type="text" placeholder="Szukana fraza" name="filter">
+                    <input type="submit" value="Znajdź produkt" name="findProductsUser">
                 </form>
             </div>
             <th:block th:if="${isAvailable=='false'}">
