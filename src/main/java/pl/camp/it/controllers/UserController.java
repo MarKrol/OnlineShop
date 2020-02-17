@@ -154,28 +154,34 @@ public class UserController {
 
     @RequestMapping(value = "/productsUser", method = RequestMethod.GET)
     public String showAllProducts(Model model){
+        String role;
         if (sessionObject.getUser()==null){
             model.addAttribute("userLogged", "Gość");
+            role="";
         }else {
             model.addAttribute("userRole", sessionObject.getUser().getUserRole().toString());
             model.addAttribute("userLogged", sessionObject.getUser().getName());
+            role=sessionObject.getUser().getUserRole().toString();
         }
         model.addAttribute("listProducts", productServices.showAvailableProducts
-                                   (productDAO.getListProduct(), sessionObject.getProductList()));
+                                   (productDAO.getListProduct(), sessionObject.getProductList(), role));
         return "productsUser";
     }
 
     @RequestMapping(value="/productsUser", method = RequestMethod.POST)
     public String showAllProductsFilter(@RequestParam String filter, Model model){
+        String role;
         if (sessionObject.getUser()==null){
             model.addAttribute("userLogged", "Gość");
+            role="";
         }else {
             model.addAttribute("userRole", sessionObject.getUser().getUserRole().toString());
             model.addAttribute("userLogged", sessionObject.getUser().getName());
+            role=sessionObject.getUser().getUserRole().toString();
         }
 
         List<Product> filters=userServices.filtrProducts(productServices.showAvailableProducts
-                (productDAO.getListProduct(), sessionObject.getProductList()), filter);
+                (productDAO.getListProduct(), sessionObject.getProductList(), role), filter);
 
         model.addAttribute("listProducts", filters);
         return "productsUser";

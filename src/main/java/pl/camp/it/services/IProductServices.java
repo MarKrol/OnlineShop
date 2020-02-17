@@ -9,7 +9,7 @@ public interface IProductServices {
     Product completeProduct(Product product);
     Product findProductById(int id);
     void saveChangeToFile1(Product product);
-    List<Product> showAvailableProducts(List<Product> productListDB, List<Product> sessionObject);
+    List<Product> showAvailableProducts(List<Product> productListDB, List<Product> sessionObject, String role);
     Product rememberProducers(Product product);
     boolean isAvailableProduct(Product product, List<Product> productList1);
     Double priceSum(List<Product> productList);

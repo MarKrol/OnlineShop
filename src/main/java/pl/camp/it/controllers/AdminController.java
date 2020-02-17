@@ -182,7 +182,8 @@ public class AdminController {
             model.addAttribute("userRole", sessionObject.getUser().getUserRole().toString());
             model.addAttribute("userLogged", sessionObject.getUser().getName());
             List<Product> filters = userServices.filtrProducts(productServices.showAvailableProducts
-                    (productDAO.getListProduct(), sessionObject.getProductList()),"");
+                    (productDAO.getListProduct(), new ArrayList<Product>(),
+                                                        sessionObject.getUser().getUserRole().toString()),"");
 
             model.addAttribute("listProducts", filters);
 
@@ -201,7 +202,8 @@ public class AdminController {
 
 
             List<Product> filters = userServices.filtrProducts(productServices.showAvailableProducts
-                    (productDAO.getListProduct(), sessionObject.getProductList()), filter);
+                    (productDAO.getListProduct(), new ArrayList<Product>(),
+                                                        sessionObject.getUser().getUserRole().toString()), filter);
 
             model.addAttribute("listProducts", filters);
             return "findAdmin";

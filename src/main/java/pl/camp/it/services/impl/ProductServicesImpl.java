@@ -67,7 +67,7 @@ public class ProductServicesImpl implements IProductServices {
     }
 
     @Override
-    public List<Product> showAvailableProducts(List<Product> productListDB, List<Product> sessionObject){
+    public List<Product> showAvailableProducts(List<Product> productListDB, List<Product> sessionObject, String role){
         List<Product> tempListProducts = new ArrayList<>();
 
         List<Product> temp=new ArrayList<>();
@@ -76,23 +76,29 @@ public class ProductServicesImpl implements IProductServices {
             if (sessionObject!=null) {
                 tempListProducts=sessionObject;
             }
-            for(Product product: productListDB){
-                for(int i=0; i<=tempListProducts.size()-1;i++){
-                    if (product.getId()==tempListProducts.get(i).getId()){
-                        if (product.getAvailability()-tempListProducts.get(i).getAvailability()<=0){
-                            product.setState(false);
-                            break;
-                        } else{
-                            product.setState(true);
+            if(role =="USER" || role=="" || role==null) {
+                for (Product product : productListDB) {
+                    for (int i = 0; i <= tempListProducts.size() - 1; i++) {
+                        if (product.getId() == tempListProducts.get(i).getId()) {
+                            if (product.getAvailability() - tempListProducts.get(i).getAvailability() <= 0) {
+                                product.setState(false);
+                                break;
+                            } else {
+                                product.setState(true);
+                            }
                         }
                     }
                 }
             }
 
-            for(Product product : productListDB){
-                if(product.isState()){
-                    temp.add(product);
+            if(role =="USER" || role=="" || role==null) {
+                for (Product product : productListDB) {
+                    if (product.isState()) {
+                        temp.add(product);
+                    }
                 }
+            }else{
+                temp=productListDB;
             }
 
         }
