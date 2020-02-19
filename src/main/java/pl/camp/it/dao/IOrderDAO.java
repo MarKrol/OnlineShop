@@ -1,6 +1,7 @@
 package pl.camp.it.dao;
 
 import pl.camp.it.model.Order;
+import pl.camp.it.model.OrderState;
 
 import java.util.List;
 

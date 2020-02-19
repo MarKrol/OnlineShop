@@ -10,9 +10,12 @@ import pl.camp.it.model.Product;
 import pl.camp.it.model.User;
 import pl.camp.it.services.IOrderServices;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Random;
 
 @Service
@@ -37,7 +40,7 @@ public class OrderServicesImpl implements IOrderServices {
     @Override
     public void addOrderToFile(User user, List<Product> productList){
         Order order=new Order();
-        order.setId(new Random().nextInt());
+        //order.setId(new Random().nextInt());
         order.setLocalDate(LocalDate.now());
         order.setOrderState(OrderState.PRZYJETO_DO_REALIZACJI);
         order.setUser(user);
@@ -76,10 +79,10 @@ public class OrderServicesImpl implements IOrderServices {
                     if (product1.getAvailability()==0){
                         product1.setState(false);
                     }
+                    productDAO.saveChangeProduct(tempListProduct, product.getId());
                 }
             }
         }
-        productDAO.saveChangeProduct(tempListProduct);
     }
 
     @Override
@@ -96,11 +99,15 @@ public class OrderServicesImpl implements IOrderServices {
 
     @Override
     public double priceReturnOrderUser(List<Order> orders){
+        Locale locale = Locale.ENGLISH;
+        NumberFormat numberFormatFormat = NumberFormat.getNumberInstance(locale);
+        numberFormatFormat.setMinimumFractionDigits(2);
+        numberFormatFormat.setMaximumFractionDigits(2);
         double price=0;
         for(int i=0; i<=orders.get(0).getProductList().size()-1; i++){
             price=price+(orders.get(0).getProductList().get(i).getAvailability()*orders.get(0).getProductList().get(i).getPrice());
         }
-        return price;
+        return Double.valueOf(numberFormatFormat.format(price));
     }
 
     @Override

@@ -7,5 +7,5 @@ import java.util.List;
 public interface IUserDAO {
     void persistUser(User user);
     List<User> getUsers();
-    void saveUsers(List<User> userList);
+    void saveUsers(List<User> userList, int id);
 }

@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-@Repository
+//@Repository
 public class UserDAOImpl implements IUserDAO {
 
     private String fileName = ".\\src\\main\\resources\\users.txt";
@@ -18,7 +18,7 @@ public class UserDAOImpl implements IUserDAO {
 
 
     @Override
-    public void saveUsers(List<User> userList) {
+    public void saveUsers(List<User> userList, int id) {
         try(BufferedWriter bufferedWriter =new BufferedWriter(new FileWriter(fileName))){
 
             for(User user: userList) {

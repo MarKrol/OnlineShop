@@ -9,10 +9,9 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-@Repository
 public class OrderDAOImpl implements IOrderDAO {
 
-    private String fileName=".\\src\\main\\resources\\order.txt";
+    private String fileName=".\\src\\main\\resources\\order1.txt";
 
     @Override
     public void saveChangeOrder(List<Order> orderList) {

@@ -9,13 +9,13 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Repository
+
 public class IProductDAOImpl implements IProductDAO {
 
-    private String fileName=".\\src\\main\\resources\\products.txt";
+    private String fileName=".\\src\\main\\resources\\products1.txt";
 
     @Override
-    public void saveChangeProduct(List<Product> productList) {
+    public void saveChangeProduct(List<Product> productList, int id) {
         try(BufferedWriter bufferedWriter=new BufferedWriter(new FileWriter(fileName))){
             for (Product product: productList) {
                 bufferedWriter.write(product.toString());

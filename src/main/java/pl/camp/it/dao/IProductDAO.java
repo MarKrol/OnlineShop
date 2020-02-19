@@ -7,5 +7,5 @@ import java.util.List;
 public interface IProductDAO {
     void persistProduct(Product product);
     List<Product> getListProduct();
-    void saveChangeProduct(List<Product> productList);
+    void saveChangeProduct(List<Product> productList, int id);
 }

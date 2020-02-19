@@ -50,7 +50,7 @@ public class UserServicesImpl implements IUserServices {
     @Override
     public void addUserInDataBase(User user) {
         String pass=DigestUtils.md5Hex(user.getPass());
-        user.setId(userID());
+        //user.setId(userID());
         user.setPass(pass);
         user.setUserRole(UserRole.USER);
         userDAO.persistUser(user);
@@ -75,9 +75,9 @@ public class UserServicesImpl implements IUserServices {
         return log;
     }
 
-    private int userID(){
-        return new Random().nextInt();
-    }
+    //private int userID(){
+    //    return new Random().nextInt();
+    //}
 
     public User getOnlyUser(User user){
         List<User> userList = userDAO.getUsers();

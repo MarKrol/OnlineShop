@@ -67,7 +67,7 @@ public class AdminController {
                     temp.add(user);
                 }
             }
-            userDAO.saveUsers(temp);
+            userDAO.saveUsers(temp, id);
             return "redirect:/userList";
         }else{
             return "redirect:/index";
@@ -101,7 +101,7 @@ public class AdminController {
                     temp.add(user);
                 }
             }
-            userDAO.saveUsers(temp);
+            userDAO.saveUsers(temp,id);
             return "redirect:/userAdmin";
         }else{
             return "redirect:/index";
@@ -369,15 +369,17 @@ public class AdminController {
             model.addAttribute("userLogged", sessionObject.getUser().getName());
 
             List<Order> orders = orderDAO.getListOrder();
+            List<Order> tempOrder1 = new ArrayList<>();
             Order tempOrder = new Order();
             for (Order order : orders) {
                 if (orderServices.getReturnId() == order.getId()) {
                     order.setOrderState(OrderState.valueOf(value));
+                    tempOrder1.add(order);
                     tempOrder = order;
                     break;
                 }
             }
-            orderDAO.saveChangeOrder(orders);
+            orderDAO.saveChangeOrder(tempOrder1);
             model.addAttribute("tempOrder", tempOrder);
             model.addAttribute("order", orderDAO.getListOrder());
             return "redirect:/historyAdmin";

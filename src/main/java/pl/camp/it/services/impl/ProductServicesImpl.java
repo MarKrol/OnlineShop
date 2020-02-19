@@ -7,8 +7,11 @@ import pl.camp.it.model.Order;
 import pl.camp.it.model.Product;
 import pl.camp.it.services.IProductServices;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Random;
 
 @Service
@@ -35,7 +38,7 @@ public class ProductServicesImpl implements IProductServices {
     @Override
     public Product completeProduct(Product product){
 
-        product.setId(randomId());
+        //product.setId(randomId());
 
         if (product.getAvailability()!=0) {
             product.setState(true);
@@ -63,7 +66,7 @@ public class ProductServicesImpl implements IProductServices {
                 tempolary.add(product);
             }
         }
-        productDAO.saveChangeProduct(tempolary);
+        productDAO.saveChangeProduct(tempolary, product.getId());
     }
 
     @Override
@@ -159,18 +162,22 @@ public class ProductServicesImpl implements IProductServices {
 
     @Override
     public Double priceSum(List<Product> productList){
+        Locale locale = Locale.ENGLISH;
+        NumberFormat numberFormatFormat = NumberFormat.getNumberInstance(locale);
+        numberFormatFormat.setMinimumFractionDigits(2);
+        numberFormatFormat.setMaximumFractionDigits(2);
         double price=0.00;
         if (productList!=null) {
             for (Product temp : productList) {
                 price = price + (temp.getPrice()*temp.getAvailability());
             }
         }
-        return price;
+        return Double.valueOf(numberFormatFormat.format(price));
     }
 
-    private int randomId(){
-        return new Random().nextInt();
-    }
+    //private int randomId(){
+        //return new Random().nextInt();
+    //}
 
     @Override
     public List<Product> orderedList(List<Product> productList){
